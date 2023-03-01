@@ -1,0 +1,31 @@
+@startuml
+'https://plantuml.com/component-diagram
+
+
+package client {
+    node mobile
+    node web
+}
+
+
+node "rest-api" {
+    [Controller]
+    [Service]
+    [Repository]
+}
+
+database "Database" {
+  folder "Table A"
+  folder "Table B"
+  folder "Table C"
+}
+
+mobile <--> [Controller]
+web <--> [Controller]
+[Controller] <--> [Service]
+[Repository] <--> [Service]
+[Repository] <--> "Table A"
+[Repository] <--> "Table B"
+[Repository] <--> "Table C"
+
+@enduml
